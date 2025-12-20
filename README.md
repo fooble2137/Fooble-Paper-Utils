@@ -24,7 +24,7 @@ Add the following repository and dependency to your `pom.xml` file:
 <dependency>
     <groupId>dev.fooble.mc</groupId>
     <artifactId>fooble-paper-utils</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
