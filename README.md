@@ -1,8 +1,8 @@
 # Fooble PaperMC Utils
 
 ![MIT License](https://img.shields.io/badge/License-MIT-a6da95?style=for-the-badge&labelColor=363a4f)
-![Version fpu-0.1-dev](https://img.shields.io/badge/Version-fpu--0.1--dev-f5a97f?style=for-the-badge&labelColor=363a4f)
-![Maven Version 0.1.0-SNAPSHOT](https://img.shields.io/badge/Maven-0.1.0--SNAPSHOT-91d7e3?style=for-the-badge&labelColor=363a4f)
+![Version fpu-0.1](https://img.shields.io/badge/Version-fpu--0.1-f5a97f?style=for-the-badge&labelColor=363a4f)
+![Maven Version 0.1.0](https://img.shields.io/badge/Maven-0.1.0-91d7e3?style=for-the-badge&labelColor=363a4f)
 
 A collection of utilities and tools for my PaperMC plugins. You are free to use the Fooble PaperMC Utils in your own
 projects, but please give credit where it's due.
