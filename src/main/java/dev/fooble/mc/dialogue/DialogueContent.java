@@ -22,5 +22,7 @@ public interface DialogueContent {
     @NotNull
     DialogType getDialogType();
 
+    boolean canCloseWithEscape();
+
     void registerActions(@NotNull DialogueEventHandler eventHandler);
 }

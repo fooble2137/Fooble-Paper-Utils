@@ -73,4 +73,9 @@ public class TestDialogue implements DialogueContent {
             player.setExp(exp / 100);
         });
     }
+
+    @Override
+    public boolean canCloseWithEscape() {
+        return true;
+    }
 }

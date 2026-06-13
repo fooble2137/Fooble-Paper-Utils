@@ -40,6 +40,7 @@ public class Dialogue {
         Dialog dialog = Dialog.create(builder -> builder.empty()
                 .base(DialogBase.builder(content.getTitle())
                         .body(bodies)
+                        .canCloseWithEscape(content.canCloseWithEscape())
                         .inputs(content.getInputs())
                         .build()
                 )
