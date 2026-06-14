@@ -37,11 +37,12 @@ public class Dialogue {
             }
         }
 
-        Dialog dialog = Dialog.create(builder -> builder.empty()
+        final Dialog dialog = Dialog.create(builder -> builder.empty()
                 .base(DialogBase.builder(content.getTitle())
                         .body(bodies)
                         .canCloseWithEscape(content.canCloseWithEscape())
                         .inputs(content.getInputs())
+                        .afterAction(content.getAfterAction())
                         .build()
                 )
                 .type(content.getDialogType()));

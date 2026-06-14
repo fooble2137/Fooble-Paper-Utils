@@ -1,5 +1,6 @@
 package dev.fooble.mc.dialogue;
 
+import io.papermc.paper.registry.data.dialog.DialogBase;
 import io.papermc.paper.registry.data.dialog.input.DialogInput;
 import io.papermc.paper.registry.data.dialog.type.DialogType;
 import net.kyori.adventure.text.Component;
@@ -23,6 +24,11 @@ public interface DialogueContent {
     DialogType getDialogType();
 
     boolean canCloseWithEscape();
+
+    @NotNull
+    default DialogBase.DialogAfterAction getAfterAction() {
+        return DialogBase.DialogAfterAction.CLOSE;
+    }
 
     void registerActions(@NotNull DialogueEventHandler eventHandler);
 }
