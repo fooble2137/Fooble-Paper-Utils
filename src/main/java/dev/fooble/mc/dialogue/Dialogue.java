@@ -43,6 +43,7 @@ public class Dialogue {
                         .canCloseWithEscape(content.canCloseWithEscape())
                         .inputs(content.getInputs())
                         .afterAction(content.getAfterAction())
+                        .pause(false)
                         .build()
                 )
                 .type(content.getDialogType()));
