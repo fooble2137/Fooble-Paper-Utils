@@ -51,7 +51,7 @@ public class TestDialogue implements DialogueContent {
                         ComponentBuilder.of("<dark_green>Confirm"),
                         ComponentBuilder.of("Click to confirm your input."),
                         100,
-                        DialogAction.customClick(Key.key("fooble:dialog/test/confirm"), null)
+                        DialogAction.customClick(Key.key("dialog/test/confirm"), null)
                 ),
                 ActionButton.create(
                         ComponentBuilder.of("<dark_red>Discard"),
