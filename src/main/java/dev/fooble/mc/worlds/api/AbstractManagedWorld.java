@@ -1,12 +1,10 @@
 package dev.fooble.mc.worlds.api;
 
-import lombok.Getter;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-@Getter
 public abstract class AbstractManagedWorld implements ManagedWorld {
 
     protected final String name;
@@ -16,6 +14,16 @@ public abstract class AbstractManagedWorld implements ManagedWorld {
     protected AbstractManagedWorld(String name, WorldOptions options) {
         this.name = name;
         this.options = options;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public WorldOptions getOptions() {
+        return options;
     }
 
     @Override

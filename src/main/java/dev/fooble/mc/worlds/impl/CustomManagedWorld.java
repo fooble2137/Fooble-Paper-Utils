@@ -4,6 +4,7 @@ import dev.fooble.mc.worlds.api.AbstractManagedWorld;
 import dev.fooble.mc.worlds.api.WorldOptions;
 import dev.fooble.mc.worlds.api.WorldType;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRules;
 import org.bukkit.WorldCreator;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,7 +47,12 @@ public class CustomManagedWorld extends AbstractManagedWorld {
 
     protected void applyOptions() {
         world.setAutoSave(options.isAutoSave());
-        world.setSpawnFlags(options.isAllowMonsters(), options.isAllowAnimals());
+
+        world.setAllowMonsterSpawning(options.isAllowMonsters());
+
+        if(!options.isAllowMonsters() && !options.isAllowAnimals()) {
+            world.setGameRule(GameRules.SPAWN_MOBS, false);
+        }
     }
 
     @Override
