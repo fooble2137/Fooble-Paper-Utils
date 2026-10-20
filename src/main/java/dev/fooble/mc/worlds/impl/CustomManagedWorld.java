@@ -3,12 +3,15 @@ package dev.fooble.mc.worlds.impl;
 import dev.fooble.mc.worlds.api.AbstractManagedWorld;
 import dev.fooble.mc.worlds.api.WorldOptions;
 import dev.fooble.mc.worlds.api.WorldType;
-import org.bukkit.Bukkit;
-import org.bukkit.GameRules;
-import org.bukkit.WorldCreator;
+import org.bukkit.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Comparator;
 
 public class CustomManagedWorld extends AbstractManagedWorld {
 
@@ -65,19 +68,29 @@ public class CustomManagedWorld extends AbstractManagedWorld {
 
     @Override
     public void delete() {
-        unload(false);
-        deleteWorldFolder(new File(Bukkit.getWorldContainer(), name));
+        World world = Bukkit.getWorld(name);
+        File worldFolder = world != null ? world.getWorldFolder() : null;
+
+        if((world != null && !Bukkit.unloadWorld(world, false)) || (worldFolder != null && !deleteDirectory(worldFolder))) {
+            throw new IllegalStateException(
+                    "Could not unload dimension: " + name
+            );
+        }
     }
 
-    protected void deleteWorldFolder(@NotNull File folder) {
-        if(!folder.exists()) return;
-
-        File[] files = folder.listFiles();
-        if(files != null) {
-            for(File file : files) {
-                deleteWorldFolder(file);
+    private boolean deleteDirectory(File path) {
+    if (path.exists()) {
+        File[] files = path.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    deleteDirectory(file);
+                } else {
+                    file.delete();
+                }
             }
         }
-        folder.delete();
     }
+    return path.delete();
+}
 }
